@@ -1,0 +1,28 @@
+{
+	"format_version": 1,
+	"imports": [{
+	"target_table": "Seat",
+	"source_data": {
+	"data_type": "CSV",
+		"file_name": "Seat.csv",
+		"has_header": false,
+		"dialect": "HANA",
+		"type_config": {
+		"delimiter": ","
+		}
+	},
+	"import_settings": {
+	"import_columns": [
+		"MODEL",
+		"SEAT",
+		"CLASS",
+		"STYPE"]
+	},
+	"column_mappings": {
+		"MODEL": 1,
+		"SEAT": 2,
+		"CLASS": 3,
+		"STYPE": 4
+		}
+	}]
+	}

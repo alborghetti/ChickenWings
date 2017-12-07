@@ -1,0 +1,50 @@
+{
+	"format_version": 1,
+	"imports": [{
+	"target_table": "Booking",
+	"source_data": {
+	"data_type": "CSV",
+		"file_name": "Booking.csv",
+		"has_header": false,
+		"dialect": "HANA",
+		"type_config": {
+		"delimiter": ","
+		}
+	},
+	"import_settings": {
+	"import_columns": [
+		"FLIGHT",
+		"FDATE",
+		"MODEL",
+		"SEAT",
+		"CUSTID",
+		"STDPRICE",
+		"BOOKPRICE",
+		"FEES",
+		"DISCOUNT",
+		"TAX",
+		"TOTAL",
+		"PAYMENT",
+		"STATUS",
+		"PASSENGER",
+		"CHECKIN"]
+	},
+	"column_mappings": {
+		"FLIGHT": 2,
+		"FDATE": 3,
+		"MODEL": 4,
+		"SEAT": 5,
+		"CUSTID": 6,
+		"STDPRICE": 7,
+		"BOOKPRICE": 8,
+		"FEES": 9,
+		"DISCOUNT": 10,
+		"TAX": 11,
+		"TOTAL": 12,
+		"PAYMENT": 13,
+		"STATUS": 14,
+		"PASSENGER": 15,
+		"CHECKIN":16
+		}
+	}]
+	}

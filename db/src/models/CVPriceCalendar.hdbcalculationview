@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CVPriceCalendar" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVPriceCalendar"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="PriceCalendar">
+    <resourceUri>PriceCalendar</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="PriceCalendar">
+  <attributes>
+    <attribute id="CDATE" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CDATE"/>
+      <keyMapping columnObjectName="PriceCalendar" columnName="CDATE"/>
+    </attribute>
+    <attribute id="RATE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RATE"/>
+      <keyMapping columnObjectName="PriceCalendar" columnName="RATE"/>
+    </attribute>
+    <attribute id="SEASON" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEASON"/>
+      <keyMapping columnObjectName="PriceCalendar" columnName="SEASON"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

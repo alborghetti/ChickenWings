@@ -1,0 +1,40 @@
+PROCEDURE "modifyAirport" (
+		IN im_code NVARCHAR(3), 
+		IN im_name NVARCHAR(50), 
+		IN im_city NVARCHAR(20), 
+		IN im_country NVARCHAR(20), 
+		IN im_timezone NVARCHAR(3), 
+		IN im_latitude DECIMAL(12, 6), 
+		IN im_longitude DECIMAL(12, 6), 
+		OUT ex_error NVARCHAR(100)
+	)
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER
+AS
+BEGIN
+	DECLARE noc INTEGER;
+
+	-- Check if the entry exist
+	SELECT count(im_code) INTO noc
+	FROM "Airport"
+	WHERE "CODE" = im_code;
+	
+	-- Raise an Error	
+	IF (:noc = 0) THEN
+		ex_error := 'ERROR: Airport ' || :im_code || ' does not exists!';
+	
+	-- Update the Record
+	ELSE
+		UPDATE "Airport"
+		SET "NAME" = im_name, 
+			"CITY" = im_city, 
+			"COUNTRY" = im_country, 
+			"TIMEZONE" = im_timezone, 
+			"LATITUDE" = im_latitude, 
+			"LONGITUDE" = im_longitude, 
+			"LOCATION" = new ST_POINT ('POINT ('|| im_longitude || ' ' || im_latitude || ')',4326)
+		WHERE "CODE" = im_code;
+
+	END IF;
+	
+END;

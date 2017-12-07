@@ -1,0 +1,26 @@
+PROCEDURE "deleteCustomer" (
+	IN im_custid INTEGER,
+	OUT ex_error NVARCHAR(100))
+LANGUAGE SQLSCRIPT SQL
+SECURITY INVOKER AS
+BEGIN
+	-- Declare variables
+	declare noc integer;
+	
+	-- Check if the entry exist
+	SELECT COUNT("CUSTID") INTO noc
+	FROM "Customer"
+	WHERE "CUSTID" = im_custid;
+	
+	-- Raise an Error
+	if :noc = 0 then
+		ex_error := 'ERROR: Customer ' || :im_custid || ' does not exist!';
+	
+	-- Delete the Entry	
+	else
+		DELETE FROM "Customer"
+		WHERE "CUSTID" = im_custid;
+		
+	end if;
+	
+END

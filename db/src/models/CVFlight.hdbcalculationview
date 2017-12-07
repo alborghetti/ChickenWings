@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CVFlight" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVFlight"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Flight">
+    <resourceUri>Flight</resourceUri>
+  </DataSource>
+  <DataSource id="Crew">
+    <resourceUri>Crew</resourceUri>
+  </DataSource>
+  <DataSource id="CVCrew">
+    <resourceUri>CVCrew</resourceUri>
+  </DataSource>
+  <DataSource id="P_Crew1$$$$CVCrew$$">
+    <resourceUri>CVCrew</resourceUri>
+  </DataSource>
+  <DataSource id="P_Crew2$$$$CVCrew$$">
+    <resourceUri>CVCrew</resourceUri>
+  </DataSource>
+  <DataSource id="P_Crew3$$$$CVCrew$$">
+    <resourceUri>CVCrew</resourceUri>
+  </DataSource>
+  <DataSource id="CVConnection">
+    <resourceUri>CVConnection</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_Flight">
+    <viewAttributes>
+      <viewAttribute id="ARRT" aggregationType="min">
+        <descriptions defaultDescription="ARRT"/>
+      </viewAttribute>
+      <viewAttribute id="CREW1" aggregationType="sum">
+        <descriptions defaultDescription="CREW1"/>
+      </viewAttribute>
+      <viewAttribute id="CREW2" aggregationType="sum">
+        <descriptions defaultDescription="CREW2"/>
+      </viewAttribute>
+      <viewAttribute id="CREW3" aggregationType="sum">
+        <descriptions defaultDescription="CREW3"/>
+      </viewAttribute>
+      <viewAttribute id="DEPT" aggregationType="min">
+        <descriptions defaultDescription="DEPT"/>
+      </viewAttribute>
+      <viewAttribute id="FDATE">
+        <descriptions defaultDescription="FDATE"/>
+      </viewAttribute>
+      <viewAttribute id="FLIGHT">
+        <descriptions defaultDescription="FLIGHT"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT1" aggregationType="sum">
+        <descriptions defaultDescription="PILOT1"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT2" aggregationType="sum">
+        <descriptions defaultDescription="PILOT2"/>
+      </viewAttribute>
+      <viewAttribute id="PLANE" aggregationType="sum">
+        <descriptions defaultDescription="PLANE"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Flight">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ARRT" source="ARRT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW1" source="CREW1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW2" source="CREW2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW3" source="CREW3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEPT" source="DEPT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FDATE" source="FDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLIGHT" source="FLIGHT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT1" source="PILOT1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT2" source="PILOT2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLANE" source="PLANE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ARRT" aggregationType="min">
+        <descriptions defaultDescription="ARRT"/>
+      </viewAttribute>
+      <viewAttribute id="CREW1" aggregationType="sum">
+        <descriptions defaultDescription="CREW1"/>
+      </viewAttribute>
+      <viewAttribute id="CREW2" aggregationType="sum">
+        <descriptions defaultDescription="CREW2"/>
+      </viewAttribute>
+      <viewAttribute id="CREW3" aggregationType="sum">
+        <descriptions defaultDescription="CREW3"/>
+      </viewAttribute>
+      <viewAttribute id="DEPT" aggregationType="min">
+        <descriptions defaultDescription="DEPT"/>
+      </viewAttribute>
+      <viewAttribute id="FDATE">
+        <descriptions defaultDescription="FDATE"/>
+      </viewAttribute>
+      <viewAttribute id="FLIGHT">
+        <descriptions defaultDescription="FLIGHT"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT1" aggregationType="sum">
+        <descriptions defaultDescription="PILOT1"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT2" aggregationType="sum">
+        <descriptions defaultDescription="PILOT2"/>
+      </viewAttribute>
+      <viewAttribute id="PLANE" aggregationType="sum">
+        <descriptions defaultDescription="PLANE"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="P1_FNAME">
+        <descriptions defaultDescription="P1_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P1_LNAME">
+        <descriptions defaultDescription="P1_LNAME"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="P_Flight">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ARRT" source="ARRT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW1" source="CREW1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW2" source="CREW2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW3" source="CREW3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEPT" source="DEPT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FDATE" source="FDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLIGHT" source="FLIGHT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT1" source="PILOT1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT2" source="PILOT2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLANE" source="PLANE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/></input>
+    <input node="P_Pilot1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_FNAME" source="P1_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_LNAME" source="P1_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT1" source="CREWID"/>
+    </input>
+    <joinAttribute name="PILOT1"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_Pilot1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="P1_FNAME">
+        <descriptions defaultDescription="FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P1_LNAME">
+        <descriptions defaultDescription="LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="CREWID" aggregationType="sum">
+        <descriptions defaultDescription="CREWID"/>
+      </viewAttribute>
+      <viewAttribute id="ROLE">
+        <descriptions defaultDescription="ROLE"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Crew">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREWID" source="CREWID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_FNAME" source="FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_LNAME" source="LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROLE" source="ROLE"/>
+    </input>
+    <filter>&quot;ROLE&quot; = 'PILOT'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ARRT" aggregationType="min">
+        <descriptions defaultDescription="ARRT"/>
+      </viewAttribute>
+      <viewAttribute id="CREW1" aggregationType="sum">
+        <descriptions defaultDescription="CREW1"/>
+      </viewAttribute>
+      <viewAttribute id="CREW2" aggregationType="sum">
+        <descriptions defaultDescription="CREW2"/>
+      </viewAttribute>
+      <viewAttribute id="CREW3" aggregationType="sum">
+        <descriptions defaultDescription="CREW3"/>
+      </viewAttribute>
+      <viewAttribute id="DEPT" aggregationType="min">
+        <descriptions defaultDescription="DEPT"/>
+      </viewAttribute>
+      <viewAttribute id="FDATE">
+        <descriptions defaultDescription="FDATE"/>
+      </viewAttribute>
+      <viewAttribute id="FLIGHT">
+        <descriptions defaultDescription="FLIGHT"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT1" aggregationType="sum">
+        <descriptions defaultDescription="PILOT1"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT2" aggregationType="sum">
+        <descriptions defaultDescription="PILOT2"/>
+      </viewAttribute>
+      <viewAttribute id="PLANE" aggregationType="sum">
+        <descriptions defaultDescription="PLANE"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="P1_FNAME">
+        <descriptions defaultDescription="P1_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P1_LNAME">
+        <descriptions defaultDescription="P1_LNAME"/>
+      </viewAttribute>
+    
+      <viewAttribute id="P2_LNAME">
+        <descriptions defaultDescription="P2_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P2_FNAME">
+        <descriptions defaultDescription="P2_FNAME"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ARRT" source="ARRT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW1" source="CREW1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW2" source="CREW2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW3" source="CREW3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEPT" source="DEPT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FDATE" source="FDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLIGHT" source="FLIGHT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT1" source="PILOT1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT2" source="PILOT2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLANE" source="PLANE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_FNAME" source="P1_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_LNAME" source="P1_LNAME"/>
+    </input>
+    <input node="P_Pilot2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_LNAME" source="P2_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_FNAME" source="P2_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT2" source="CREWID"/>
+    </input>
+    <joinAttribute name="PILOT2"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_Pilot2" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="CREWID">
+        <descriptions defaultDescription="CREWID"/>
+      </viewAttribute>
+      <viewAttribute id="P2_FNAME">
+        <descriptions defaultDescription="FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P2_LNAME">
+        <descriptions defaultDescription="LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="ROLE">
+        <descriptions defaultDescription="ROLE"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="CVCrew">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREWID" source="CREWID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_FNAME" source="FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_LNAME" source="LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROLE" source="ROLE"/>
+    </input>
+    <filter>&quot;ROLE&quot; = 'PILOT'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_Crew1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="CREWID">
+        <descriptions defaultDescription="CREWID"/>
+      </viewAttribute>
+      <viewAttribute id="C1_FNAME">
+        <descriptions defaultDescription="FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C1_LNAME">
+        <descriptions defaultDescription="LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="ROLE">
+        <descriptions defaultDescription="ROLE"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="P_Crew1$$$$CVCrew$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREWID" source="CREWID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C1_FNAME" source="FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C1_LNAME" source="LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROLE" source="ROLE"/>
+    </input>
+    <filter>&quot;ROLE&quot; = 'CREW'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_4" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ARRT" aggregationType="min">
+        <descriptions defaultDescription="ARRT"/>
+      </viewAttribute>
+      <viewAttribute id="CREW1" aggregationType="sum">
+        <descriptions defaultDescription="CREW1"/>
+      </viewAttribute>
+      <viewAttribute id="CREW2" aggregationType="sum">
+        <descriptions defaultDescription="CREW2"/>
+      </viewAttribute>
+      <viewAttribute id="CREW3" aggregationType="sum">
+        <descriptions defaultDescription="CREW3"/>
+      </viewAttribute>
+      <viewAttribute id="DEPT" aggregationType="min">
+        <descriptions defaultDescription="DEPT"/>
+      </viewAttribute>
+      <viewAttribute id="FDATE">
+        <descriptions defaultDescription="FDATE"/>
+      </viewAttribute>
+      <viewAttribute id="FLIGHT">
+        <descriptions defaultDescription="FLIGHT"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT1" aggregationType="sum">
+        <descriptions defaultDescription="PILOT1"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT2" aggregationType="sum">
+        <descriptions defaultDescription="PILOT2"/>
+      </viewAttribute>
+      <viewAttribute id="PLANE" aggregationType="sum">
+        <descriptions defaultDescription="PLANE"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="P1_FNAME">
+        <descriptions defaultDescription="P1_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P1_LNAME">
+        <descriptions defaultDescription="P1_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P2_LNAME">
+        <descriptions defaultDescription="P2_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P2_FNAME">
+        <descriptions defaultDescription="P2_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C1_FNAME">
+        <descriptions defaultDescription="C1_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C1_LNAME">
+        <descriptions defaultDescription="C1_LNAME"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ARRT" source="ARRT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW1" source="CREW1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW2" source="CREW2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW3" source="CREW3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEPT" source="DEPT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FDATE" source="FDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLIGHT" source="FLIGHT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT1" source="PILOT1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT2" source="PILOT2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLANE" source="PLANE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_FNAME" source="P1_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_LNAME" source="P1_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_LNAME" source="P2_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_FNAME" source="P2_FNAME"/>
+    </input>
+    <input node="P_Crew1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C1_FNAME" source="C1_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C1_LNAME" source="C1_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW1" source="CREWID"/>
+    </input>
+    <joinAttribute name="CREW1"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_Crew2" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="C2_FNAME">
+        <descriptions defaultDescription="FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C2_LNAME">
+        <descriptions defaultDescription="LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="ROLE">
+        <descriptions defaultDescription="ROLE"/>
+      </viewAttribute>
+      <viewAttribute id="CREWID">
+        <descriptions defaultDescription="CREWID"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="P_Crew2$$$$CVCrew$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C2_FNAME" source="FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C2_LNAME" source="LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROLE" source="ROLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREWID" source="CREWID"/>
+    </input>
+    <filter>&quot;ROLE&quot;= 'CREW'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_5" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ARRT" aggregationType="min">
+        <descriptions defaultDescription="ARRT"/>
+      </viewAttribute>
+      <viewAttribute id="CREW1" aggregationType="sum">
+        <descriptions defaultDescription="CREW1"/>
+      </viewAttribute>
+      <viewAttribute id="CREW2" aggregationType="sum">
+        <descriptions defaultDescription="CREW2"/>
+      </viewAttribute>
+      <viewAttribute id="CREW3" aggregationType="sum">
+        <descriptions defaultDescription="CREW3"/>
+      </viewAttribute>
+      <viewAttribute id="DEPT" aggregationType="min">
+        <descriptions defaultDescription="DEPT"/>
+      </viewAttribute>
+      <viewAttribute id="FDATE">
+        <descriptions defaultDescription="FDATE"/>
+      </viewAttribute>
+      <viewAttribute id="FLIGHT">
+        <descriptions defaultDescription="FLIGHT"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT1" aggregationType="sum">
+        <descriptions defaultDescription="PILOT1"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT2" aggregationType="sum">
+        <descriptions defaultDescription="PILOT2"/>
+      </viewAttribute>
+      <viewAttribute id="PLANE" aggregationType="sum">
+        <descriptions defaultDescription="PLANE"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="P1_FNAME">
+        <descriptions defaultDescription="P1_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P1_LNAME">
+        <descriptions defaultDescription="P1_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P2_LNAME">
+        <descriptions defaultDescription="P2_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P2_FNAME">
+        <descriptions defaultDescription="P2_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C1_FNAME">
+        <descriptions defaultDescription="C1_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C1_LNAME">
+        <descriptions defaultDescription="C1_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C2_FNAME">
+        <descriptions defaultDescription="C2_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C2_LNAME">
+        <descriptions defaultDescription="C2_LNAME"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_4">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ARRT" source="ARRT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW1" source="CREW1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW2" source="CREW2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW3" source="CREW3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEPT" source="DEPT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FDATE" source="FDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLIGHT" source="FLIGHT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT1" source="PILOT1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT2" source="PILOT2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLANE" source="PLANE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_FNAME" source="P1_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_LNAME" source="P1_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_LNAME" source="P2_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_FNAME" source="P2_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C1_FNAME" source="C1_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C1_LNAME" source="C1_LNAME"/>
+    </input>
+    <input node="P_Crew2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C2_FNAME" source="C2_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C2_LNAME" source="C2_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW2" source="CREWID"/>
+    </input>
+    <joinAttribute name="CREW2"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_6" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ARRT" aggregationType="min">
+        <descriptions defaultDescription="ARRT"/>
+      </viewAttribute>
+      <viewAttribute id="CREW1" aggregationType="sum">
+        <descriptions defaultDescription="CREW1"/>
+      </viewAttribute>
+      <viewAttribute id="CREW2" aggregationType="sum">
+        <descriptions defaultDescription="CREW2"/>
+      </viewAttribute>
+      <viewAttribute id="CREW3" aggregationType="sum">
+        <descriptions defaultDescription="CREW3"/>
+      </viewAttribute>
+      <viewAttribute id="DEPT" aggregationType="min">
+        <descriptions defaultDescription="DEPT"/>
+      </viewAttribute>
+      <viewAttribute id="FDATE">
+        <descriptions defaultDescription="FDATE"/>
+      </viewAttribute>
+      <viewAttribute id="FLIGHT">
+        <descriptions defaultDescription="FLIGHT"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT1" aggregationType="sum">
+        <descriptions defaultDescription="PILOT1"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT2" aggregationType="sum">
+        <descriptions defaultDescription="PILOT2"/>
+      </viewAttribute>
+      <viewAttribute id="PLANE" aggregationType="sum">
+        <descriptions defaultDescription="PLANE"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="P1_FNAME">
+        <descriptions defaultDescription="P1_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P1_LNAME">
+        <descriptions defaultDescription="P1_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P2_LNAME">
+        <descriptions defaultDescription="P2_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P2_FNAME">
+        <descriptions defaultDescription="P2_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C1_FNAME">
+        <descriptions defaultDescription="C1_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C1_LNAME">
+        <descriptions defaultDescription="C1_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C2_FNAME">
+        <descriptions defaultDescription="C2_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C2_LNAME">
+        <descriptions defaultDescription="C2_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C3_FNAME">
+        <descriptions defaultDescription="C3_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C3_LNAME">
+        <descriptions defaultDescription="C3_LNAME"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_5">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ARRT" source="ARRT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW1" source="CREW1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW2" source="CREW2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW3" source="CREW3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEPT" source="DEPT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FDATE" source="FDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLIGHT" source="FLIGHT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT1" source="PILOT1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT2" source="PILOT2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLANE" source="PLANE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_FNAME" source="P1_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_LNAME" source="P1_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_LNAME" source="P2_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_FNAME" source="P2_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C1_FNAME" source="C1_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C1_LNAME" source="C1_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C2_FNAME" source="C2_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C2_LNAME" source="C2_LNAME"/>
+    </input>
+    <input node="P_Crew3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C3_FNAME" source="C3_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C3_LNAME" source="C3_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW3" source="CREWID"/>
+    </input>
+    <joinAttribute name="CREW3"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_Crew3" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="CREWID">
+        <descriptions defaultDescription="CREWID"/>
+      </viewAttribute>
+      <viewAttribute id="C3_FNAME">
+        <descriptions defaultDescription="FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C3_LNAME">
+        <descriptions defaultDescription="LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="ROLE">
+        <descriptions defaultDescription="ROLE"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="P_Crew3$$$$CVCrew$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREWID" source="CREWID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C3_FNAME" source="FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C3_LNAME" source="LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ROLE" source="ROLE"/>
+    </input>
+    <filter>&quot;ROLE&quot; = 'CREW'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_7" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ARRT" aggregationType="min">
+        <descriptions defaultDescription="ARRT"/>
+      </viewAttribute>
+      <viewAttribute id="CREW1" aggregationType="sum">
+        <descriptions defaultDescription="CREW1"/>
+      </viewAttribute>
+      <viewAttribute id="CREW2" aggregationType="sum">
+        <descriptions defaultDescription="CREW2"/>
+      </viewAttribute>
+      <viewAttribute id="CREW3" aggregationType="sum">
+        <descriptions defaultDescription="CREW3"/>
+      </viewAttribute>
+      <viewAttribute id="DEPT" aggregationType="min">
+        <descriptions defaultDescription="DEPT"/>
+      </viewAttribute>
+      <viewAttribute id="FDATE">
+        <descriptions defaultDescription="FDATE"/>
+      </viewAttribute>
+      <viewAttribute id="FLIGHT">
+        <descriptions defaultDescription="FLIGHT"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT1" aggregationType="sum">
+        <descriptions defaultDescription="PILOT1"/>
+      </viewAttribute>
+      <viewAttribute id="PILOT2" aggregationType="sum">
+        <descriptions defaultDescription="PILOT2"/>
+      </viewAttribute>
+      <viewAttribute id="PLANE" aggregationType="sum">
+        <descriptions defaultDescription="PLANE"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="P1_FNAME">
+        <descriptions defaultDescription="P1_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P1_LNAME">
+        <descriptions defaultDescription="P1_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P2_LNAME">
+        <descriptions defaultDescription="P2_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="P2_FNAME">
+        <descriptions defaultDescription="P2_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C1_FNAME">
+        <descriptions defaultDescription="C1_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C1_LNAME">
+        <descriptions defaultDescription="C1_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C2_FNAME">
+        <descriptions defaultDescription="C2_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C2_LNAME">
+        <descriptions defaultDescription="C2_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C3_FNAME">
+        <descriptions defaultDescription="C3_FNAME"/>
+      </viewAttribute>
+      <viewAttribute id="C3_LNAME">
+        <descriptions defaultDescription="C3_LNAME"/>
+      </viewAttribute>
+      <viewAttribute id="MILES">
+        <descriptions defaultDescription="MILES"/>
+      </viewAttribute>
+      <viewAttribute id="BPPRICE">
+        <descriptions defaultDescription="BPPRICE"/>
+      </viewAttribute>
+      <viewAttribute id="BSPRICE">
+        <descriptions defaultDescription="BSPRICE"/>
+      </viewAttribute>
+      <viewAttribute id="SCH_DEPT">
+        <descriptions defaultDescription="DEPT_1"/>
+      </viewAttribute>
+      <viewAttribute id="EPPRICE">
+        <descriptions defaultDescription="EPPRICE"/>
+      </viewAttribute>
+      <viewAttribute id="ESPRICE">
+        <descriptions defaultDescription="ESPRICE"/>
+      </viewAttribute>
+      <viewAttribute id="FPPRICE">
+        <descriptions defaultDescription="FPPRICE"/>
+      </viewAttribute>
+      <viewAttribute id="FROMAP">
+        <descriptions defaultDescription="FROMAP"/>
+      </viewAttribute>
+      <viewAttribute id="FSPRICE">
+        <descriptions defaultDescription="FSPRICE"/>
+      </viewAttribute>
+      <viewAttribute id="SENDD">
+        <descriptions defaultDescription="SENDD"/>
+      </viewAttribute>
+      <viewAttribute id="SSTARTD">
+        <descriptions defaultDescription="SSTARTD"/>
+      </viewAttribute>
+      <viewAttribute id="TOAP">
+        <descriptions defaultDescription="TOAP"/>
+      </viewAttribute>
+      <viewAttribute id="FR_CITY">
+        <descriptions defaultDescription="FR_CITY"/>
+      </viewAttribute>
+      <viewAttribute id="FR_COUNTRY">
+        <descriptions defaultDescription="FR_COUNTRY"/>
+      </viewAttribute>
+      <viewAttribute id="CC_DISTANCE">
+        <descriptions defaultDescription="CC_DISTANCE"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_6">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ARRT" source="ARRT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW1" source="CREW1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW2" source="CREW2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREW3" source="CREW3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEPT" source="DEPT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FDATE" source="FDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLIGHT" source="FLIGHT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT1" source="PILOT1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PILOT2" source="PILOT2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLANE" source="PLANE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_FNAME" source="P1_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P1_LNAME" source="P1_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_LNAME" source="P2_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="P2_FNAME" source="P2_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C1_FNAME" source="C1_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C1_LNAME" source="C1_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C2_FNAME" source="C2_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C2_LNAME" source="C2_LNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C3_FNAME" source="C3_FNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C3_LNAME" source="C3_LNAME"/>
+    </input>
+    <input node="CVConnection">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MILES" source="MILES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BPPRICE" source="BPPRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BSPRICE" source="BSPRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SCH_DEPT" source="DEPT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EPPRICE" source="EPPRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ESPRICE" source="ESPRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FPPRICE" source="FPPRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FROMAP" source="FROMAP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FSPRICE" source="FSPRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SENDD" source="SENDD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SSTARTD" source="SSTARTD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TOAP" source="TOAP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FR_CITY" source="FR_CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FR_COUNTRY" source="FR_COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_DISTANCE" source="CC_DISTANCE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLIGHT" source="FLIGHT"/>
+    </input>
+    <joinAttribute name="FLIGHT"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_7">
+  <attributes>
+    <attribute id="ARRT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ARRT"/>
+      <keyMapping columnObjectName="Join_7" columnName="ARRT"/>
+    </attribute>
+    <attribute id="CREW1" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CREW1"/>
+      <keyMapping columnObjectName="Join_7" columnName="CREW1"/>
+    </attribute>
+    <attribute id="CREW2" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CREW2"/>
+      <keyMapping columnObjectName="Join_7" columnName="CREW2"/>
+    </attribute>
+    <attribute id="CREW3" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CREW3"/>
+      <keyMapping columnObjectName="Join_7" columnName="CREW3"/>
+    </attribute>
+    <attribute id="DEPT" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DEPT"/>
+      <keyMapping columnObjectName="Join_7" columnName="DEPT"/>
+    </attribute>
+    <attribute id="FDATE" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FDATE"/>
+      <keyMapping columnObjectName="Join_7" columnName="FDATE"/>
+    </attribute>
+    <attribute id="FLIGHT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLIGHT"/>
+      <keyMapping columnObjectName="Join_7" columnName="FLIGHT"/>
+    </attribute>
+    <attribute id="PILOT1" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PILOT1"/>
+      <keyMapping columnObjectName="Join_7" columnName="PILOT1"/>
+    </attribute>
+    <attribute id="PILOT2" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PILOT2"/>
+      <keyMapping columnObjectName="Join_7" columnName="PILOT2"/>
+    </attribute>
+    <attribute id="PLANE" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PLANE"/>
+      <keyMapping columnObjectName="Join_7" columnName="PLANE"/>
+    </attribute>
+    <attribute id="STATUS" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STATUS"/>
+      <keyMapping columnObjectName="Join_7" columnName="STATUS"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="586.1747521035124" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_Flight" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="937"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="115.3333333333333" y="817"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="P_Flight" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="P_Pilot1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_Pilot1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="281.9999999999998" y="937"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="138.66666666666669" y="697"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Join_2" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="P_Pilot2" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_Pilot2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="346.0429117340843" y="817"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_Crew1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="420.56988314704597" y="697"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_4" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="161.99999999999994" y="577"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Join_3" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="P_Crew1" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_Crew2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="510.0338508159004" y="577"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_5" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="185.3333333333332" y="457"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Join_4" modelObjectNameSpace="Join_5" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="P_Crew2" modelObjectNameSpace="Join_5" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_6" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="570.3214622136496" y="337"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Join_5" modelObjectNameSpace="Join_6" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="P_Crew3" modelObjectNameSpace="Join_6" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_Crew3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="615.9763096338396" y="457"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_7" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="570.3214622136496" y="217"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Join_6" modelObjectNameSpace="Join_7" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CVConnection" modelObjectNameSpace="Join_7" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

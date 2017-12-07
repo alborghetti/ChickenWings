@@ -1,0 +1,40 @@
+PROCEDURE "createPriceCalendar" ( 
+	IN im_from_date DATE,
+	IN im_to_date DATE,
+	IN im_rate NVARCHAR(20),
+	IN im_season NVARCHAR(20),
+	OUT ex_error NVARCHAR(100))
+LANGUAGE SQLSCRIPT SQL
+SECURITY INVOKER AS
+BEGIN
+	-- Declare variables
+	declare noc integer;
+	declare mydate date := im_from_date;
+	
+	-- Check if the entry exist
+	SELECT COUNT("CDATE") INTO noc
+	FROM "PriceCalendar"
+	WHERE "CDATE" BETWEEN im_from_date AND im_to_date;
+	
+	-- Raise an Error
+	if :noc > 0 then
+		ex_error := 'ERROR: PriceCalendar already exist between ' || :im_from_date || ' and ' || :im_to_date;
+	
+	-- Insert the Records
+	else
+		-- For the date range
+		while mydate <= :im_to_date do
+			-- Insert record
+			INSERT INTO "PriceCalendar" VALUES (
+				mydate, 
+				im_rate,
+				im_season
+			);
+			
+			-- increment by 1 day
+			SELECT ADD_DAYS(mydate,1) INTO mydate FROM dummy;
+		end while;
+		
+	end if;
+	
+END

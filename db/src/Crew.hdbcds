@@ -1,0 +1,10 @@
+entity Crew /* Crew Details */
+{
+    key CREWID  : Integer not null; /* Customer ID */
+        FNAME   : String(20); /* First Name */
+        LNAME   : String(20); /* Last Name */
+        MOBILE  : String(15); /* Mobile/Cell Number */
+        EMAIL   : String(25); /* Email */
+        COUNTRY : String(25); /* Country of Residence*/
+        ROLE    : String(20); /* Job/Role of Crew */
+};

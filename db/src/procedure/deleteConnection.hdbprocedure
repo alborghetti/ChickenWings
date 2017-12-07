@@ -1,0 +1,26 @@
+PROCEDURE "deleteConnection" (
+	IN im_flight INTEGER,
+	OUT ex_error NVARCHAR(100))
+LANGUAGE SQLSCRIPT SQL
+SECURITY INVOKER AS
+BEGIN
+	-- Declare variables
+	declare noc integer;
+	
+	-- Check if the entry exist
+	SELECT COUNT("FLIGHT") INTO noc
+	FROM "Connection"
+	WHERE "FLIGHT" = im_flight;
+	
+	-- Raise an Error
+	if :noc = 0 then
+		ex_error := 'ERROR: Connection ' || :im_flight || ' does not exist!';
+	
+	-- Delete the Entry	
+	else
+		DELETE FROM "Connection"
+		WHERE "FLIGHT" = im_flight;
+		
+	end if;
+	
+END

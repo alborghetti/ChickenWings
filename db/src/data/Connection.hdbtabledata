@@ -1,0 +1,48 @@
+{
+	"format_version": 1,
+	"imports": [{
+	"target_table": "Connection",
+	"source_data": {
+	"data_type": "CSV",
+		"file_name": "Connection.csv",
+		"has_header": false,
+		"dialect": "HANA",
+		"type_config": {
+		"delimiter": ","
+		}
+	},
+	"import_settings": {
+	"import_columns": [
+		"FLIGHT",
+		"FROMAP",
+		"TOAP",
+		"DEPT",
+		"ARRT",
+		"MILES",
+		"SSTARTD",
+		"SENDD",
+		"ESPRICE",
+		"EPPRICE",
+		"BSPRICE",
+		"BPPRICE",
+		"FSPRICE",
+		"FPPRICE"]
+	},
+	"column_mappings": {
+		"FLIGHT": 2,
+		"FROMAP": 3,
+		"TOAP": 4,
+		"DEPT": 5,
+		"ARRT": 6,
+		"MILES": 7,
+		"SSTARTD": 8,
+		"SENDD": 9,
+		"ESPRICE": 10,
+		"EPPRICE": 11,
+		"BSPRICE": 12,
+		"BPPRICE": 13,
+		"FSPRICE": 14,
+		"FPPRICE": 15
+		}
+	}]
+	}

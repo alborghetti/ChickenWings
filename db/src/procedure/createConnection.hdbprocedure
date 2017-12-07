@@ -1,0 +1,52 @@
+PROCEDURE "createConnection" ( 
+	IN im_flight NVARCHAR(6),
+	IN im_fromap NVARCHAR(3),
+	IN im_toap NVARCHAR(3),
+	IN im_dept TIME,
+	IN im_arrt TIME,
+	IN im_miles INTEGER,
+	IN im_sstartd DATE,
+	IN im_sendd DATE,
+	IN im_esprice DECIMAL(12,2),
+	IN im_epprice DECIMAL(12,2),
+	IN im_bsprice DECIMAL(12,2),
+	IN im_bpprice DECIMAL(12,2),
+	IN im_fsprice DECIMAL(12,2),
+	IN im_fpprice DECIMAL(12,2),
+	OUT ex_error NVARCHAR(100))
+LANGUAGE SQLSCRIPT SQL
+SECURITY INVOKER AS
+BEGIN
+	-- Declare variables
+	declare noc integer;
+
+	SELECT count("FLIGHT")
+		INTO noc
+		FROM "Connection"
+		WHERE "FLIGHT" = im_flight;
+		
+	IF (:noc > 0) THEN
+		ex_error := 'ERROR: Flight ' || :im_flight || ' already exist!';
+	
+	ELSE
+		-- Insert record	
+		INSERT INTO "Connection" VALUES (
+			im_flight,
+			im_fromap,
+			im_toap,
+			im_dept,
+			im_arrt,
+			im_miles,
+			im_sstartd,
+			im_sendd,
+			im_esprice,
+			im_epprice,
+			im_bsprice,
+			im_bpprice,
+			im_fsprice,
+			im_fpprice
+		);
+		
+	END IF;
+					
+END

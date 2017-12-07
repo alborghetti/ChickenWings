@@ -1,0 +1,23 @@
+PROCEDURE "createCustomer" (
+	IN im_fname NVARCHAR(20),
+	IN im_lname NVARCHAR(20),
+	IN im_mobile NVARCHAR(15),
+	IN im_email NVARCHAR(25),
+	IN im_country NVARCHAR(25),
+	IN im_flyerid NVARCHAR(20),
+	OUT ex_error NVARCHAR(100))
+LANGUAGE SQLSCRIPT SQL
+SECURITY INVOKER AS
+BEGIN
+	-- Insert record
+	INSERT INTO "Customer" VALUES (
+		"CustId".NEXTVAL,
+		im_fname, 
+		im_lname,
+		im_mobile,
+		im_email,
+		im_country,
+		im_flyerid
+	);
+				
+END

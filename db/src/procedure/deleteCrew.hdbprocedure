@@ -1,0 +1,25 @@
+PROCEDURE "deleteCrew" (
+	IN im_crewid INTEGER,
+	OUT ex_error NVARCHAR(100))
+LANGUAGE SQLSCRIPT SQL
+SECURITY INVOKER AS
+BEGIN
+	-- Declare variables
+	declare noc integer;
+	
+	-- Check if the entry exist
+	SELECT COUNT("CREWID") INTO noc
+	FROM "Crew"
+	WHERE "CREWID" = im_crewid;
+	
+	-- Raise an Error
+	if :noc = 0 then
+		ex_error := 'ERROR: Crew ' || :im_crewid || ' does not exist!';
+	
+	-- Delete the Entry	
+	else
+		DELETE FROM "Crew"
+		WHERE "CREWID" = im_crewid;
+	end if;
+	
+END

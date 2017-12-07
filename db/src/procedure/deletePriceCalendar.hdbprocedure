@@ -1,0 +1,26 @@
+PROCEDURE "deletePriceCalendar" (
+	IN im_from_date DATE,
+	IN im_to_date DATE,
+	OUT ex_error NVARCHAR(100))
+LANGUAGE SQLSCRIPT SQL
+SECURITY INVOKER AS
+BEGIN
+	-- Declare variables
+	declare noc integer;
+	
+	-- Check if the entry exist
+	SELECT COUNT("CDATE") INTO noc
+	FROM "PriceCalendar"
+	WHERE "CDATE" BETWEEN im_from_date AND im_to_date;
+	
+	-- Raise an Error
+	if :noc = 0 then
+		ex_error := 'ERROR: PriceCalendar does not exist between ' || :im_from_date || ' and ' || :im_to_date;
+	
+	-- Delete the Entry	
+	else
+		DELETE FROM "PriceCalendar"
+		WHERE "CDATE" BETWEEN im_from_date AND im_to_date;
+	end if;
+	
+END

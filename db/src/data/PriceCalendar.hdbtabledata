@@ -1,0 +1,26 @@
+{
+	"format_version": 1,
+	"imports": [{
+	"target_table": "PriceCalendar",
+	"source_data": {
+	"data_type": "CSV",
+		"file_name": "PriceCalendar.csv",
+		"has_header": false,
+		"dialect": "HANA",
+		"type_config": {
+		"delimiter": ","
+		}
+	},
+	"import_settings": {
+	"import_columns": [
+		"CDATE",
+		"RATE",
+		"SEASON"]
+	},
+	"column_mappings": {
+		"CDATE": 1,
+		"RATE": 2,
+		"SEASON": 3
+		}
+	}]
+	}

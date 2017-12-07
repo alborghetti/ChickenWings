@@ -1,0 +1,7 @@
+entity PriceCalendar /* Price Calendar */
+{
+    key CDATE  : LocalDate not null; /* Date */
+        RATE   : String(10); /* Standard or Peak Rate for Pricing */
+        SEASON : String(20); /* 'Season used for Pricing */
+};
+

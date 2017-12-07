@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CVBooking" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" defaultClient="$$client$$" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVBooking"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Booking">
+    <resourceUri>Booking</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_Booking">
+    <viewAttributes>
+      <viewAttribute id="BOOKPRICE" aggregationType="sum">
+        <descriptions defaultDescription="BOOKPRICE"/>
+      </viewAttribute>
+      <viewAttribute id="CHECKIN">
+        <descriptions defaultDescription="CHECKIN"/>
+      </viewAttribute>
+      <viewAttribute id="CUSTID" aggregationType="sum">
+        <descriptions defaultDescription="CUSTID"/>
+      </viewAttribute>
+      <viewAttribute id="DISCOUNT" aggregationType="sum">
+        <descriptions defaultDescription="DISCOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="FDATE">
+        <descriptions defaultDescription="FDATE"/>
+      </viewAttribute>
+      <viewAttribute id="FEES" aggregationType="sum">
+        <descriptions defaultDescription="FEES"/>
+      </viewAttribute>
+      <viewAttribute id="FLIGHT">
+        <descriptions defaultDescription="FLIGHT"/>
+      </viewAttribute>
+      <viewAttribute id="MODEL">
+        <descriptions defaultDescription="MODEL"/>
+      </viewAttribute>
+      <viewAttribute id="PASSENGER">
+        <descriptions defaultDescription="PASSENGER"/>
+      </viewAttribute>
+      <viewAttribute id="PAYMENT">
+        <descriptions defaultDescription="PAYMENT"/>
+      </viewAttribute>
+      <viewAttribute id="SEAT">
+        <descriptions defaultDescription="SEAT"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="STDPRICE" aggregationType="sum">
+        <descriptions defaultDescription="STDPRICE"/>
+      </viewAttribute>
+      <viewAttribute id="TAX" aggregationType="sum">
+        <descriptions defaultDescription="TAX"/>
+      </viewAttribute>
+      <viewAttribute id="TOTAL" aggregationType="sum">
+        <descriptions defaultDescription="TOTAL"/>
+      </viewAttribute>
+      <viewAttribute id="_Customer_CUSTID" aggregationType="sum">
+        <descriptions defaultDescription="_Customer_CUSTID"/>
+      </viewAttribute>
+      <viewAttribute id="_Flight_FDATE">
+        <descriptions defaultDescription="_Flight_FDATE"/>
+      </viewAttribute>
+      <viewAttribute id="_Flight_FLIGHT">
+        <descriptions defaultDescription="_Flight_FLIGHT"/>
+      </viewAttribute>
+      <viewAttribute id="_Seat_MODEL">
+        <descriptions defaultDescription="_Seat_MODEL"/>
+      </viewAttribute>
+      <viewAttribute id="_Seat_SEAT">
+        <descriptions defaultDescription="_Seat_SEAT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Booking">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BOOKPRICE" source="BOOKPRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CHECKIN" source="CHECKIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTID" source="CUSTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DISCOUNT" source="DISCOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FDATE" source="FDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FEES" source="FEES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLIGHT" source="FLIGHT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MODEL" source="MODEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PASSENGER" source="PASSENGER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENT" source="PAYMENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEAT" source="SEAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STDPRICE" source="STDPRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TAX" source="TAX"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TOTAL" source="TOTAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="_Customer_CUSTID" source="_Customer.CUSTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="_Flight_FDATE" source="_Flight.FDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="_Flight_FLIGHT" source="_Flight.FLIGHT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="_Seat_MODEL" source="_Seat.MODEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="_Seat_SEAT" source="_Seat.SEAT"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="P_Booking">
+  <attributes>
+    <attribute id="CHECKIN" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CHECKIN"/>
+      <keyMapping columnObjectName="P_Booking" columnName="CHECKIN"/>
+    </attribute>
+    <attribute id="PASSENGER" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PASSENGER"/>
+      <keyMapping columnObjectName="P_Booking" columnName="PASSENGER"/>
+    </attribute>
+    <attribute id="PAYMENT" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PAYMENT"/>
+      <keyMapping columnObjectName="P_Booking" columnName="PAYMENT"/>
+    </attribute>
+    <attribute id="Booking_STATUS" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STATUS_1"/>
+      <keyMapping columnObjectName="P_Booking" columnName="STATUS"/>
+    </attribute>
+    <attribute id="_Flight_FDATE" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="_Flight_FDATE"/>
+      <keyMapping columnObjectName="P_Booking" columnName="_Flight_FDATE"/>
+    </attribute>
+    <attribute id="_Flight_FLIGHT" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="_Flight_FLIGHT"/>
+      <keyMapping columnObjectName="P_Booking" columnName="_Flight_FLIGHT"/>
+    </attribute>
+    <attribute id="_Seat_MODEL" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="_Seat_MODEL"/>
+      <keyMapping columnObjectName="P_Booking" columnName="_Seat_MODEL"/>
+    </attribute>
+    <attribute id="_Seat_SEAT" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="_Seat_SEAT"/>
+      <keyMapping columnObjectName="P_Booking" columnName="_Seat_SEAT"/>
+    </attribute>
+    <attribute id="FLIGHT$local">
+      <descriptions defaultDescription="FLIGHT"/>
+      <keyMapping columnObjectName="P_Booking" columnName="FLIGHT"/>
+    </attribute>
+    <attribute id="FDATE$local">
+      <descriptions defaultDescription="FDATE"/>
+      <keyMapping columnObjectName="P_Booking" columnName="FDATE"/>
+    </attribute>
+    <attribute id="CUSTID$local">
+      <descriptions defaultDescription="CUSTID"/>
+      <keyMapping columnObjectName="P_Booking" columnName="CUSTID"/>
+    </attribute>
+    <attribute id="MODEL$local">
+      <descriptions defaultDescription="MODEL"/>
+      <keyMapping columnObjectName="P_Booking" columnName="MODEL"/>
+    </attribute>
+    <attribute id="SEAT$local">
+      <descriptions defaultDescription="SEAT"/>
+      <keyMapping columnObjectName="P_Booking" columnName="SEAT"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="BOOKPRICE" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="BOOKPRICE"/>
+      <measureMapping columnObjectName="P_Booking" columnName="BOOKPRICE"/>
+    </measure>
+    <measure id="DISCOUNT" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="DISCOUNT"/>
+      <measureMapping columnObjectName="P_Booking" columnName="DISCOUNT"/>
+    </measure>
+    <measure id="FEES" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="FEES"/>
+      <measureMapping columnObjectName="P_Booking" columnName="FEES"/>
+    </measure>
+    <measure id="STDPRICE" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="STDPRICE"/>
+      <measureMapping columnObjectName="P_Booking" columnName="STDPRICE"/>
+    </measure>
+    <measure id="TAX" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="TAX"/>
+      <measureMapping columnObjectName="P_Booking" columnName="TAX"/>
+    </measure>
+    <measure id="TOTAL" order="10" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="TOTAL"/>
+      <measureMapping columnObjectName="P_Booking" columnName="TOTAL"/>
+    </measure>
+    <measure id="_Customer_CUSTID" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="_Customer_CUSTID"/>
+      <measureMapping columnObjectName="P_Booking" columnName="_Customer_CUSTID"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="CVFlight">
+      <attributes>
+        <attributeRef>FLIGHT$local</attributeRef>
+        <attributeRef>FDATE$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>FLIGHT</attributeName>
+        <attributeName>FDATE</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CVCustomer">
+      <attributes>
+        <attributeRef>CUSTID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>CUSTID</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CVSeat">
+      <attributes>
+        <attributeRef>MODEL$local</attributeRef>
+        <attributeRef>SEAT$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MODEL</attributeName>
+        <attributeName>SEAT</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_Booking" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="262"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="P_Booking" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="382" y="88"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CVFlight" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="52" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CVCustomer" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="723" y="44"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CVSeat" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="738" y="273"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

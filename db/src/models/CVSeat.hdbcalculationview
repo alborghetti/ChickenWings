@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CVSeat" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" defaultClient="crossClient" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVSeat"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Seat">
+    <resourceUri>Seat</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="Seat">
+  <attributes>
+    <attribute id="CLASS" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CLASS"/>
+      <keyMapping columnObjectName="Seat" columnName="CLASS"/>
+    </attribute>
+    <attribute id="MODEL" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MODEL"/>
+      <keyMapping columnObjectName="Seat" columnName="MODEL"/>
+    </attribute>
+    <attribute id="SEAT" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEAT"/>
+      <keyMapping columnObjectName="Seat" columnName="SEAT"/>
+    </attribute>
+    <attribute id="STYPE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STYPE"/>
+      <keyMapping columnObjectName="Seat" columnName="STYPE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

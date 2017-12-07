@@ -1,0 +1,25 @@
+PROCEDURE "deleteAirport" (
+	IN im_code INTEGER,
+	OUT ex_error NVARCHAR(100))
+LANGUAGE SQLSCRIPT SQL
+SECURITY INVOKER AS
+BEGIN
+	-- Declare variables
+	declare noc integer;
+	
+	-- Check if the entry exist
+	SELECT COUNT("CODE") INTO noc
+	FROM "Airport"
+	WHERE "CODE" = im_code;
+	
+	-- Raise an Error
+	if :noc = 0 then
+		ex_error := 'ERROR: Airport ' || :im_code || ' does not exist!';
+	
+	-- Delete the Entry	
+	else
+		DELETE FROM "Airport"
+		WHERE "CODE" = im_code;
+	end if;
+	
+END

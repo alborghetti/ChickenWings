@@ -1,0 +1,42 @@
+{
+	"format_version": 1,
+	"imports": [{
+	"target_table": "Flight",
+	"source_data": {
+	"data_type": "CSV",
+		"file_name": "Flight.csv",
+		"has_header": false,
+		"dialect": "HANA",
+		"type_config": {
+		"delimiter": ","
+		}
+	},
+	"import_settings": {
+	"import_columns": [
+		"FLIGHT",
+		"FDATE",
+		"PLANE",
+		"PILOT1",
+		"PILOT2",
+		"CREW1",
+		"CREW2",
+		"CREW3",
+		"DEPT",
+		"ARRT",
+		"STATUS"]
+	},
+	"column_mappings": {
+		"FLIGHT": 2,
+		"FDATE": 3,
+		"PLANE": 4,
+		"PILOT1": 5,
+		"PILOT2": 6,
+		"CREW1": 7,
+		"CREW2": 8,
+		"CREW3": 9,
+		"DEPT": 10,
+		"ARRT": 11,
+		"STATUS": 12
+		}
+	}]
+	}

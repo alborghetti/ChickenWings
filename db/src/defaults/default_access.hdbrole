@@ -1,0 +1,8 @@
+{
+	"role":{
+		"name": "default_access",
+		"schema_roles": [{
+		 "names": ["admin"]
+		}]
+	}
+}

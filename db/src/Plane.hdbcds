@@ -1,0 +1,13 @@
+entity Plane /* Plane Details */
+{
+    key REGNO      : Integer not null; /* Registration Number */
+        MODEL      : String(10); /* Model Name */
+        MAKE       : String(20); /* Manufacturer */
+        TYPE       : String(20); /* Type of Aircraft */
+        YEAR       : Integer; /* Year of Manufacture */
+        REGDATE	   : LocalDate; /* Registration Date */
+        MAXSEAT    : Integer; /* Maximum Seating Capacity */
+        ECOSEAT    : Integer; /* No of Economy Class Seats */
+        BUSSEAT    : Integer; /* No of Business Class Seats */
+        FIRSEAT    : Integer; /* No of First Class Seats */
+};

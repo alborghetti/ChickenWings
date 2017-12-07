@@ -1,0 +1,42 @@
+PROCEDURE "openFlightsForBooking" ( 
+	IN im_from_date DATE,
+	IN im_to_date DATE,
+	IN im_flight NVARCHAR(6),
+	IN im_plane integer,
+	OUT ex_error NVARCHAR(100))
+LANGUAGE SQLSCRIPT SQL
+SECURITY INVOKER AS
+BEGIN
+	-- Declare variables
+	declare noc integer;
+			
+	SELECT count("FLIGHT") INTO noc
+		FROM "Booking"
+		WHERE "FDATE" BETWEEN :im_from_date AND :im_to_date
+			AND "FLIGHT" = :im_flight;
+		
+	IF (:noc > 0) THEN
+		
+		ex_error := 'ERROR: Flight ' || :im_flight ||' already open for booking between ' || :im_from_date || ' and ' || :im_to_date;
+		
+	ELSE
+		-- Create Flight Record
+		INSERT INTO "Flight"("FLIGHT","FDATE","PLANE","DEPT","ARRT","STATUS")
+		SELECT A."FLIGHT", B."CDATE", :im_plane, A."DEPT", A."ARRT", 'SCHEDULED'
+		FROM "Connection" as A, "PriceCalendar" as B
+		WHERE B."CDATE" BETWEEN :im_from_date AND :im_to_date
+		AND A.FLIGHT = :im_flight;
+
+		-- Create Open Seats
+		INSERT INTO "Booking"("FLIGHT","FDATE","MODEL","SEAT",STDPRICE,"STATUS")	
+		SELECT A."FLIGHT", A."FDATE",D."MODEL",D."SEAT", C."ESPRICE",'AVAILABLE'
+		FROM "Flight" as A, "Plane" as B, "Connection" as C, "Seat" as D
+		WHERE A."FLIGHT" = C."FLIGHT"
+		AND A."PLANE" = B."REGNO" 
+		AND B."MODEL" = D."MODEL"
+		AND A."FDATE" BETWEEN :im_from_date AND :im_to_date
+		AND A."FLIGHT" = :im_flight;
+		
+	END IF;
+					
+END

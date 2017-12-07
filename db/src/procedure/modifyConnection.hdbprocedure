@@ -1,0 +1,48 @@
+PROCEDURE "modifyConnection"(
+	IN im_flight NVARCHAR(6),
+	IN im_fromap NVARCHAR(3),
+	IN im_toap NVARCHAR(3),
+	IN im_dept TIME,
+	IN im_arrt TIME,
+	IN im_miles INTEGER,
+	IN im_sstartd DATE,
+	IN im_sendd DATE,
+	IN im_esprice DECIMAL(12,2),
+	IN im_epprice DECIMAL(12,2),
+	IN im_bsprice DECIMAL(12,2),
+	IN im_bpprice DECIMAL(12,2),
+	IN im_fsprice DECIMAL(12,2),
+	IN im_fpprice DECIMAL(12,2),
+	OUT ex_error NVARCHAR(100))
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER
+AS
+BEGIN
+	DECLARE noc INTEGER;
+
+	SELECT count("FLIGHT")
+		INTO noc
+		FROM "Connection"
+		WHERE "FLIGHT" = im_flight;
+		
+	IF (:noc = 0) THEN
+		ex_error := 'ERROR: Connection ' || :im_flight || ' does not exists!';
+	ELSE
+		-- Update record
+		UPDATE "Connection"
+		SET "FROMAP" = im_fromap, 
+			"TOAP" = im_toap, 
+			"DEPT" = im_dept,
+			"ARRT" = im_arrt,
+			"MILES" = im_miles,
+			"SSTARTD" = im_sstartd,
+			"SENDD" = im_sendd,
+			"ESPRICE" = im_esprice,
+			"EPPRICE" = im_epprice,
+			"BSPRICE" = im_bsprice,
+			"BPPRICE" = im_bpprice,
+			"FSPRICE" = im_fsprice,
+			"FPPRICE" = im_fpprice			
+		WHERE "FLIGHT" = im_flight;
+	END IF;
+END;

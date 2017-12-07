@@ -1,0 +1,25 @@
+using Crew;
+using Plane;
+using Connection;
+
+entity Flight /* Connection Details */
+{
+    key FLIGHT         : String(6) not null; /* Flight Number */
+    key FDATE          : LocalDate not null; /* Flight Date */
+        PLANE          : Integer; /* Plane RegNo */
+        PILOT1         : Integer; /* Pilot */
+        PILOT2         : Integer; /* Co-Pilot */
+        CREW1          : Integer; /* Crew 1 */
+        CREW2          : Integer; /* Crew 2 */
+        CREW3          : Integer; /* Crew 3 */
+        DEPT           : LocalTime; /* Actual Departure Time */
+        ARRT           : LocalTime; /* Actual Arrival Time */
+        STATUS         : String(10); /* Flight Status */
+        _Connection    : association[*, 0..1] to Connection     on _Connection.FLIGHT = FLIGHT;
+        _Plane		   : association[*, 0..1] to Plane  		on _Plane.REGNO = PLANE;
+        _Pilot1        : association[*, 0..1] to Crew           on _Pilot1.CREWID = PILOT1;
+        _Pilot2        : association[*, 0..1] to Crew           on _Pilot2.CREWID = PILOT2;
+        _Crew1         : association[*, 0..1] to Crew           on _Crew1.CREWID = CREW1;
+        _Crew2         : association[*, 0..1] to Crew           on _Crew2.CREWID = CREW2;
+        _Crew3         : association[*, 0..1] to Crew           on _Crew3.CREWID = CREW3;
+};

@@ -1,0 +1,26 @@
+using Flight;
+using Seat;
+using Customer;
+
+entity Booking /* Booking Details */
+{
+    key FLIGHT    : String(6) not null; /* Flight Number */
+    key FDATE     : LocalDate not null; /* Flight Date */
+    key MODEL     : String(10) not null; /* Plane Model*/
+    key SEAT      : String(4) not null; /* Seat Number */
+        CUSTID    : Integer; /* Customer ID */
+        STDPRICE  : Decimal(12, 2); /* Base Price */
+        BOOKPRICE : Decimal(12, 2); /* Book Price */
+        FEES      : Decimal(12, 2); /* Surcharges/Fees */
+        DISCOUNT  : Decimal(12, 2); /* Discount */
+        TAX       : Decimal(12, 2); /* Tax */
+        TOTAL     : Decimal(12, 2); /* Total Amount Charged */
+        PAYMENT   : String(15); /* Mode of Payment CREDIT, CASH, POINTS*/
+        STATUS    : String(10);	/* Booking Status Hold/Confirmed/Available */
+        PASSENGER : String(20); /* Name of the Passnger */
+        CHECKIN   : String(1); /* Check-in Status */
+
+        _Flight   : association[*, 0..1] to Flight {FLIGHT,FDATE};
+        _Seat     : association[*, 0..1] to Seat { MODEL, SEAT };
+        _Customer : association[*, 0..1] to Customer { CUSTID };
+};

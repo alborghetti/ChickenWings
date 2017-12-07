@@ -1,0 +1,21 @@
+using Airport;
+
+entity Connection /* Connection Details */
+{
+    key FLIGHT        : String(6) not null; /* Flight Number */
+        FROMAP        : String(3); /* Origin Airport */
+        TOAP          : String(3); /* Destination Airport */
+        DEPT          : LocalTime; /* Departure Time */
+        ARRT          : LocalTime; /* Arrival Time*/
+        MILES         : Integer; /* Distance in Miles */
+        SSTARTD       : LocalDate; /* Service Start Date */
+        SENDD         : LocalDate; /* Service End Date */
+        ESPRICE       : Decimal(12, 2); /* Economy Class Standard Price */
+        EPPRICE       : Decimal(12, 2); /* Economy Class Peak Price */
+        BSPRICE       : Decimal(12, 2); /* Business Class Standard Price */
+        BPPRICE       : Decimal(12, 2); /* Business Class Peak Price */
+        FSPRICE       : Decimal(12, 2); /* First Class Standard Price */
+        FPPRICE       : Decimal(12, 2); /* First Class Peak Price */
+        _FromAirport  : association[*, 0..1] to Airport on _FromAirport.CODE = FROMAP;
+        _ToAirport    : association[*, 0..1] to Airport on _ToAirport.CODE = TOAP;
+};

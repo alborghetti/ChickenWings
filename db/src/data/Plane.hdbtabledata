@@ -1,0 +1,40 @@
+{
+	"format_version": 1,
+	"imports": [{
+	"target_table": "Plane",
+	"source_data": {
+	"data_type": "CSV",
+		"file_name": "Plane.csv",
+		"has_header": false,
+		"dialect": "HANA",
+		"type_config": {
+		"delimiter": ","
+		}
+	},
+	"import_settings": {
+	"import_columns": [
+		"REGNO",
+		"MODEL",
+		"MAKE",
+		"TYPE",
+		"YEAR",
+		"REGDATE",
+		"MAXSEAT",
+		"ECOSEAT",
+		"BUSSEAT",
+		"FIRSEAT"]
+	},
+	"column_mappings": {
+		"REGNO": 2,
+		"MODEL": 3,
+		"MAKE": 4,
+		"TYPE": 5,
+		"YEAR": 6,
+		"REGDATE": 7,
+		"MAXSEAT": 8,
+		"ECOSEAT": 9,
+		"BUSSEAT": 10,
+		"FIRSEAT": 11
+		}
+	}]
+	}

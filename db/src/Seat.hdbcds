@@ -1,0 +1,7 @@
+entity Seat /* Seat Details */
+{
+    key MODEL : String(10) not null; 	/* Plane Model */
+    key SEAT  : String(4) not null; 	/* Seat Number */
+        CLASS : String(10); 			/* Class of Seat: Economy, Business */
+        STYPE : String(15); 			/* 'Type of Seating: Window/Isle */
+};

@@ -1,0 +1,32 @@
+PROCEDURE "modifyPriceCalendar" ( 
+	IN im_from_date DATE,
+	IN im_to_date DATE,
+	IN im_rate NVARCHAR(20),
+	IN im_season NVARCHAR(20),
+	OUT ex_error NVARCHAR(100))
+LANGUAGE SQLSCRIPT SQL
+SECURITY INVOKER AS
+BEGIN
+	-- Declare variables
+	declare noc integer;
+	declare mydate date := im_from_date;
+	
+	-- Check if the entry exist
+	SELECT COUNT("CDATE") INTO noc
+	FROM "PriceCalendar"
+	WHERE "CDATE" BETWEEN im_from_date AND im_to_date;
+	
+	-- Raise an Error
+	if :noc = 0 then
+		ex_error := 'ERROR: PriceCalendar does not exist between ' || :im_from_date || ' and ' || :im_to_date;
+	
+	-- update the Records
+	else
+		UPDATE "PriceCalendar" 
+		SET "RATE" = :im_rate,
+			"SEASON" = :im_season
+		WHERE "CDATE" BETWEEN im_from_date AND im_to_date;
+		
+	end if;
+	
+END

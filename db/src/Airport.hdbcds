@@ -1,0 +1,11 @@
+entity Airport /* Airport Details */
+{
+    key CODE      : String(3) not null; /* Airport IATA Code */
+        NAME      : String(50); /* Airport Name */
+        CITY      : String(20); /* Airport City */
+        COUNTRY   : String(20); /* Airport Country */
+        TIMEZONE  : String(3); /* Airport Time Zone */
+        LATITUDE  : Decimal(12, 6); /* Coordinates: Latitude */
+        LONGITUDE : Decimal(12, 6); /* Coordinates: Longitude */
+        LOCATION  : hana.ST_POINT(4326);  /*Geo Cordinates: Point 4326 */
+};

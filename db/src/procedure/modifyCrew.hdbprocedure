@@ -1,0 +1,33 @@
+PROCEDURE "modifyCrew"(
+	IN im_crewid INTEGER, 
+	IN im_fname NVARCHAR(20),
+	IN im_lname NVARCHAR(20),
+	IN im_mobile NVARCHAR(15),
+	IN im_email NVARCHAR(25),
+	IN im_country NVARCHAR(25),
+	IN im_role NVARCHAR(20),
+	OUT ex_error NVARCHAR(100))
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER
+AS
+BEGIN
+	DECLARE noc INTEGER;
+
+	SELECT count("CREWID")
+		INTO noc
+		FROM "Crew"
+		WHERE "CREWID" = im_crewid;
+		
+	IF (:noc = 0) THEN
+		ex_error := 'ERROR: Crew ' || :im_crewid || ' does not exists!';
+	ELSE
+		UPDATE "Crew"
+		SET "FNAME" = im_fname, 
+			"LNAME" = im_lname, 
+			"MOBILE" = im_mobile,
+			"EMAIL" = im_email,
+			"COUNTRY" = im_country, 
+			"ROLE" = im_role
+		WHERE "CREWID" = im_crewid;
+	END IF;
+END;

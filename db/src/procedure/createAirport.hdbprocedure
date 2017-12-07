@@ -1,0 +1,39 @@
+PROCEDURE "createAirport" (
+	IN im_code NVARCHAR(3),
+	IN im_name NVARCHAR(50),
+	IN im_city NVARCHAR(20),
+	IN im_country NVARCHAR(20),
+	IN im_timezone NVARCHAR(3),
+	IN im_latitude DECIMAL(12,6),
+	IN im_longitude DECIMAL(12,6),
+	OUT ex_error NVARCHAR(100))
+LANGUAGE SQLSCRIPT SQL
+SECURITY INVOKER AS
+BEGIN
+	-- Declare variables
+	declare noc integer;
+	
+	-- Check if the entry exist
+	select count(im_code) into noc
+	from "Airport"
+	where "CODE" = im_code;
+	
+	-- Raise an Error
+	if :noc > 0 then
+		ex_error := 'ERROR: Airport ' || :im_code || ' already exists!';
+	
+	-- Insert the Record
+	else
+		insert into "Airport" values (
+		im_code, 
+		im_name,
+		im_city,
+		im_country,
+		im_timezone,
+		im_latitude,
+		im_longitude,
+		new ST_POINT ('POINT ('|| im_longitude || ' ' || im_latitude || ')',4326)
+		);
+	end if;
+	
+END
