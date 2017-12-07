@@ -9,6 +9,15 @@ modules:
    requires:
     - name: hdi_db
 
+
+ - name: flightBookingJS
+   type: nodejs
+   path: flightBookingJS
+   provides:
+    - name: flightBookingJS_api
+      properties:
+         url: ${default-url}
+
 resources:
  - name: hdi_db
    properties:
