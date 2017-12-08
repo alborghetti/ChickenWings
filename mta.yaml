@@ -1,25 +1,24 @@
 ID: ChickenWings
 _schema-version: '2.0'
 version: 0.0.1
-
 modules:
- - name: db
-   type: hdb
-   path: db
-   requires:
-    - name: hdi_db
-
-
- - name: flightBookingJS
-   type: nodejs
-   path: flightBookingJS
-   provides:
-    - name: flightBookingJS_api
-      properties:
-         url: ${default-url}
-
+  - name: db
+    type: hdb
+    path: db
+    requires:
+      - name: hdi_db
+  - name: flightBookingJS
+    type: nodejs
+    path: flightBookingJS
+    provides:
+      - name: flightBookingJS_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: db
+      - name: hdi_db
 resources:
- - name: hdi_db
-   properties:
-      hdi-container-name: ${service-name}
-   type: com.sap.xs.hdi-container
+  - name: hdi_db
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
