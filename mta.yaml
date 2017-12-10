@@ -7,11 +7,11 @@ modules:
     path: db
     requires:
       - name: hdi_db
-  - name: flightBookingJS
+  - name: js
     type: nodejs
-    path: flightBookingJS
+    path: js
     provides:
-      - name: flightBookingJS_api
+      - name: js_api
         properties:
           url: '${default-url}'
     requires:

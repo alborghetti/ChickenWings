@@ -1,3 +1,0 @@
-service {
-	"Airport" as "Airports" without ("LOCATION"); 
-}

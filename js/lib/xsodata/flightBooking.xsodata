@@ -1,0 +1,5 @@
+service {
+	"Airport" as "Airports" without ("LOCATION"); 
+	
+	"CVConnection" as "Connections" without ("TO_LOCATION","FR_LOCATION") key ("FLIGHT");
+}
