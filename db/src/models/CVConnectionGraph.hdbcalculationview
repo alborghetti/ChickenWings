@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CVConnectionGraph" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVConnectionGraph"/>
+<localVariables>
+  <variable id="FROM_AIRPORT" parameter="true">
+    <descriptions defaultDescription="FROM_AIRPORT"/>
+    <variableProperties datatype="VARCHAR" length="3" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+    </variableProperties>
+  </variable>
+  <variable id="TO_AIRPORT" parameter="true">
+    <descriptions defaultDescription="TO_AIRPORT"/>
+    <variableProperties datatype="VARCHAR" length="3" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:GraphView" id="Graph_1" workspace="chickewings.connectiongraph" action="GET_NEIGHBORHOOD">
+    <viewAttributes>
+      <viewAttribute datatype="NVARCHAR" length="3" id="CODE"/>
+      <viewAttribute datatype="INTEGER" id="DEPTH"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <getNeighborhoodParameterization>
+      <startVerticesParameter>FROM_AIRPORT</startVerticesParameter>
+      <directionParameter>TO_AIRPORT</directionParameter>
+      <minDepth>0</minDepth>
+      <maxDepth>99</maxDepth>
+      <vertexFilter></vertexFilter>
+      <edgeFilter></edgeFilter>
+    </getNeighborhoodParameterization>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Graph_1">
+  <attributes>
+    <attribute id="CODE" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CODE"/>
+      <keyMapping columnObjectName="Graph_1" columnName="CODE"/>
+    </attribute>
+    <attribute id="DEPTH" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DEPTH"/>
+      <keyMapping columnObjectName="Graph_1" columnName="DEPTH"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Graph_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="203"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
